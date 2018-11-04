@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guess Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/wgStyle.css" />
+</head>
+
+<body>
+    <h1 class="customLook graduateFont">College Nickname Guessing Game</h1>
+    <div class="greenback secondRow">
+        <button type="button" class="btnStart btn btn-success">Click to Begin</button>
+    </div>
+
+    <div class="container">
+        <!-- <div class="row">
+            <div class=" col-md-12">
+                <h1 class="customLook graduateFont">College Nickname Guessing Game</h1>
+            </div>
+        </div> -->
+        <!-- <div class="row">
+            <div class="greenBack secondRow col-md-12">
+                <button type="button" class="btn btn-light">Click to Begin</button>
+            </div>
+
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="whiteText graduateFont">School</h2>
+            </div>
+            <div class="col-md-8">
+                <h3 class="whiteText graduateFont" id="theSchool">
+                    <span id="schoolSpan"></span>
+                </h3>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="whiteText graduateFont">Name to Guess</h2>
+            </div>
+            <div class="col-md-8">
+                <h3 class="whiteText graduateFont" id="guessMe">
+                    <span>Press Space to Begin</span>
+                </h3>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="whiteText graduateFont">Used Letters</h2>
+            </div>
+            <div class="col-md-6">
+                <h3 class="whiteText graduateFont" id="usedLetters">
+                    <span id="letterList"></span>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="whiteText graduateFont">Down</h2>
+            </div>
+            <div class="downMarker col-md-1">
+                <span id="downCount">
+                    <h2 class="orangeText ">1</h2>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="assets/javascript/game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

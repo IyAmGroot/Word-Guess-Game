@@ -1,0 +1,50 @@
+body {
+  background-image: url("../images/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#guessMe {
+  letter-spacing: 1em;
+}
+#usedLetters {
+  color: red;
+}
+.graduateFont {
+  font-family: "Graduate", cursive;
+}
+.greenBack {
+  background-color: rgb(6, 66, 6);
+}
+.customLook {
+  background-color: rgb(6, 66, 6);
+  color: #fff;
+  text-align: center;
+}
+.whiteText {
+  color: #fff;
+  vertical-align: -webkit-baseline-middle;
+}
+.orangeText {
+  color: orangered;
+  text-shadow: #fff;
+  font-size: 400%;
+  text-align: center;
+  padding-top: 10%;
+}
+.downMarker {
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+}
+.startButton {
+  align-self: center;
+}
+.btnStart {
+  background-color: rgb(6, 66, 6);
+}
+.secondRow {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
