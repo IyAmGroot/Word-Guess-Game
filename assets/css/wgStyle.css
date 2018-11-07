@@ -3,6 +3,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#topLine {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #guessMe {
   letter-spacing: 1em;
 }
@@ -47,4 +53,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.lastRow {
+  /* display: inline; */
+}
+#winLose {
+  padding-top: 25%;
+  width: 80%;
+  /* vertical-align: middle;
+  max-width: 100%; */
+}
+#schoolPic {
+  width: 400px;
+}
+.hide {
+  display: none;
 }

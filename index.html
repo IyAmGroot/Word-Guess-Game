@@ -10,27 +10,21 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/wgStyle.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 </head>
 
 <body>
-    <h1 class="customLook graduateFont">College Nickname Guessing Game</h1>
-    <div class="greenback secondRow">
-        <button type="button" class="btnStart btn btn-success">Click to Begin</button>
+    <div id="topLine" class="container-fluid">
+        <h1 class="customLook graduateFont">College Nickname Guessing Game</h1>
+        <div class="greenback secondRow">
+            <button id="startBtn" type="button" class="btnStart btn btn-success">Click to Begin</button>
+        </div>
     </div>
 
+
     <div class="container">
-        <!-- <div class="row">
-            <div class=" col-md-12">
-                <h1 class="customLook graduateFont">College Nickname Guessing Game</h1>
-            </div>
-        </div> -->
-        <!-- <div class="row">
-            <div class="greenBack secondRow col-md-12">
-                <button type="button" class="btn btn-light">Click to Begin</button>
-            </div>
-
-        </div> -->
-
         <div class="row">
             <div class="col-md-4">
                 <h2 class="whiteText graduateFont">School</h2>
@@ -50,7 +44,7 @@
             </div>
             <div class="col-md-8">
                 <h3 class="whiteText graduateFont" id="guessMe">
-                    <span>Press Space to Begin</span>
+                    <span></span>
                 </h3>
             </div>
 
@@ -76,11 +70,20 @@
             </div>
 
         </div>
+        <div class="row lastRow">
+            <div class="col-md-6">
+                <img id="winLose" class="hide" src="https://media.giphy.com/media/ZT5PRXNyg2EJa/source.gif" alt="Winner">
+            </div>
+            <div class="col-md-6">
+                <img id="schoolPic" src="assets/images/Unknown.png" alt="school">
+                <iframe id="schoolSong" class="hide" width="300" height="200" src="https://www.youtube.com/embed/7csGhMQoQms?controls=0"
+                    allow=" autoplay; encrypted-media"></iframe>
+            </div>
+        </div>
 
     </div>
     <script src="assets/javascript/game.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
