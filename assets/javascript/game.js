@@ -14,6 +14,28 @@ var school = {
     return this.fightSong;
   }
 };
+// var schoolNames = ["Alabama", "James Madison University", "Louisiana State University", "Michigan", "Texas", "Ohio State", "UCLA", "Notre Dame", "University of Virginia", "Virginia Tech" ];
+// var schoolMascots = ["Crimson Tide", "Dukes", "Tigers", "Wolverines", "Longhorns", "Buckeyes", "Bruins", "Fightin Irish", "Cavaliers", "Hokies"];
+// var schoolLogos = ["Alabama.jpg", "jmu.jpg", "lsu.png", "michigan.jpg", "texasfight.jpg", "theOSU.jpg", "UCLA.png", "UND-FI.jpg", "uva.jpeg", "virginiatech.png"];
+// var schoolSongs = ["https://www.youtube.com/embed/1gu17MFr5-M?controls=0", "https://www.youtube.com/embed/2nZ7RolGw3w?controls=0&amp;start=4", "https://www.youtube.com/embed/yy9ie3eZvc4?controls=0&amp;start=4", "https://www.youtube.com/embed/KwRpUwuCdcA?controls=0", "Texas", "Ohio State", "UCLA", "Notre Dame", "University of Virginia", "Virginia Tech" ];
+
+/*  uncomment section when ready to build object array  URL to w3schools: https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_constructor
+function School(name, mascot, logo, fightSong){
+  this.name = name;
+  this.mascot = mascot;
+  this.log = logo;
+  this.fightSong = fightSong;
+  this.getLogo= function() {
+    return this.logo;
+  }
+  this.getSong = function() {
+    return this.fightSong;
+  }
+
+}
+
+
+*/
 
 //object.assign(a,b) - combines objects.  create obj with key:values, obj with fn and merge
 //OR
