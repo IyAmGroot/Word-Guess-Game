@@ -1,48 +1,98 @@
-var school = {
-  name: "NOTRE DAME",
-  mascot: "FIGHTIN IRISH",
-  logo: "assets/images/UND-FI.jpg",
-  fightSong: "x",
+var schoolNames = [
+  "Alabama",
+  "James Madison University",
+  "Louisiana State University",
+  "Michigan",
+  "Texas",
+  "Ohio State",
+  "UCLA",
+  "Notre Dame",
+  "University of Virginia",
+  "Virginia Tech"
+];
+var schoolMascots = [
+  "CRIMSON TIDE",
+  "DUKES",
+  "TIGERS",
+  "WOLVERINES",
+  "LONGHORNS",
+  "BUCKEYES",
+  "BRUINS",
+  "FIGHTIN IRISH",
+  "CAVALIERS",
+  "HOKIES"
+];
+var schoolLogos = [
+  "Alabama.jpg",
+  "jmu.jpg",
+  "lsu.png",
+  "michigan.jpg",
+  "texasfight.jpg",
+  "theOSU.jpg",
+  "UCLA.png",
+  "UND-FI.jpg",
+  "uva.jpeg",
+  "virginiatech.png"
+];
+// var schoolSongs = [
+//   "https://www.youtube.com/embed/1gu17MFr5-M?controls=0",
+//   "https://www.youtube.com/embed/2nZ7RolGw3w?controls=0&amp;start=4",
+//   "https://www.youtube.com/embed/yy9ie3eZvc4?controls=0&amp;start=4",
+//   "https://www.youtube.com/embed/KwRpUwuCdcA?controls=0",
+//   "https://www.youtube.com/embed/efRTosGodyU?controls=0&amp;start=13",
+//   "https://www.youtube.com/embed/xzSfCv3u3d0?controls=0&amp;start=15",
+//   "https://www.youtube.com/embed/Q1FUzQdbRdw?controls=0",
+//   "https://www.youtube.com/embed/7csGhMQoQms?controls=0",
+//   "https://www.youtube.com/embed/7CIBlMGrUg8?controls=0",
+//   "https://www.youtube.com/embed/2NDdc4xYKX8?controls=0&amp;start=1"
+// ];
+var schoolSongs = [
+  "1gu17MFr5-M",
+  "2nZ7RolGw3w",
+  "yy9ie3eZvc4",
+  "KwRpUwuCdcA",
+  "efRTosGodyU",
+  "xzSfCv3u3d0",
+  "Q1FUzQdbRdw",
+  "7csGhMQoQms",
+  "7CIBlMGrUg8",
+  "2NDdc4xYKX8"
+];
+var startAt = [0, 4, 4, 0, 13, 15, 0, 0, 0, 1];
 
-  playSong: function() {
-    console.log("playing song");
-  },
-  getLogo: function() {
-    return this.logo;
-  },
-  getSong: function() {
-    return this.fightSong;
-  }
-};
-// var schoolNames = ["Alabama", "James Madison University", "Louisiana State University", "Michigan", "Texas", "Ohio State", "UCLA", "Notre Dame", "University of Virginia", "Virginia Tech" ];
-// var schoolMascots = ["Crimson Tide", "Dukes", "Tigers", "Wolverines", "Longhorns", "Buckeyes", "Bruins", "Fightin Irish", "Cavaliers", "Hokies"];
-// var schoolLogos = ["Alabama.jpg", "jmu.jpg", "lsu.png", "michigan.jpg", "texasfight.jpg", "theOSU.jpg", "UCLA.png", "UND-FI.jpg", "uva.jpeg", "virginiatech.png"];
-// var schoolSongs = ["https://www.youtube.com/embed/1gu17MFr5-M?controls=0", "https://www.youtube.com/embed/2nZ7RolGw3w?controls=0&amp;start=4", "https://www.youtube.com/embed/yy9ie3eZvc4?controls=0&amp;start=4", "https://www.youtube.com/embed/KwRpUwuCdcA?controls=0", "Texas", "Ohio State", "UCLA", "Notre Dame", "University of Virginia", "Virginia Tech" ];
-
-/*  uncomment section when ready to build object array  URL to w3schools: https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_constructor
-function School(name, mascot, logo, fightSong){
+/*  uncomment section when ready to build object array  URL to w3schools: https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_constructor */
+function School(name, mascot, logo, fightSong, startAt) {
   this.name = name;
   this.mascot = mascot;
-  this.log = logo;
+  this.logo = logo;
   this.fightSong = fightSong;
-  this.getLogo= function() {
+  this.startAt = startAt;
+  this.getLogo = function() {
     return this.logo;
-  }
+  };
   this.getSong = function() {
     return this.fightSong;
-  }
-
+  };
+  this.getStart = function() {
+    return this.startAt;
+  };
 }
 
-
-*/
+var schools = [];
+for (var i = 0; i < schoolNames.length; i++) {
+  schools[i] = new School(
+    schoolNames[i],
+    schoolMascots[i],
+    schoolLogos[i],
+    schoolSongs[i],
+    startAt[i]
+  );
+}
 
 //object.assign(a,b) - combines objects.  create obj with key:values, obj with fn and merge
 //OR
 //create an object and then instantiate it
 //schools[i] = new School()
-
-var schoolsList = [{}];
 
 //Press space bar to begin/reset
 
@@ -60,22 +110,27 @@ var schoolsList = [{}];
 
 /************************Variables*******************************************/
 var mysteryWord = "",
-  badGuess = 0,
+  badGuess = 4,
   gameStart = false,
   winner = "assets/images/winner.gif",
   loser = "assets/images/loser.jpg";
+winCount = 0;
+var player; //player
 /******************************LOGIC*****************************************/
 
-var schools = [];
-schools.push(school);
-
 $(document).ready(function() {
+  $("#guesses").html(badGuess.toString());
   $("#startBtn").on("click", function() {
+    var m = "2nZ7RolGw3w";
+    player.loadVideoById(m);
+    player.seekTo(10);
+
+    player.playVideo();
     if (!gameStart) {
+      resetGame();
       newGame();
     } else {
       if (confirm("Abandon current game?")) {
-        //Game Breaks here.  Need a Reset fn to empty all the stuff.
         resetGame();
         newGame();
       } else {
@@ -104,6 +159,72 @@ $(document).ready(function() {
 });
 
 /************************FUNCTIONS*********************************************/
+
+//function for player
+function onYouTubeIframeAPIReady() {
+  console.log("onyoutubeiframeready");
+  player = new YT.Player("schoolSong", {
+    width: 600,
+    height: 400,
+    start: 10,
+    videoId: "7csGhMQoQms",
+    playerVars: {
+      color: "white"
+    },
+    events: {
+      onReady: initialize
+    }
+  });
+}
+
+function initialize() {
+  console.log("initialize");
+  // Update the controls on load
+  updateTimerDisplay();
+  updateProgressBar();
+
+  // Clear any old interval.
+  clearInterval(time_update_interval);
+
+  // Start interval to update elapsed time display and
+  // the elapsed part of the progress bar every second.
+  time_update_interval = setInterval(function() {
+    updateTimerDisplay();
+    updateProgressBar();
+  }, 1000);
+}
+function updateTimerDisplay() {
+  // Update current time text display.
+  $("#current-time").text(formatTime(player.getCurrentTime()));
+  $("#duration").text(formatTime(player.getDuration()));
+}
+
+function formatTime(time) {
+  time = Math.round(time);
+
+  var minutes = Math.floor(time / 60),
+    seconds = time - minutes * 60;
+
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  return minutes + ":" + seconds;
+}
+$("#progress-bar").on("mouseup touchend", function(e) {
+  // Calculate the new time for the video.
+  // new time in seconds = total duration in seconds * ( value of range input / 100 )
+  var newTime = player.getDuration() * (e.target.value / 100);
+
+  // Skip video to new time.
+  player.seekTo(newTime);
+});
+function updateProgressBar() {
+  // Update the value of our progress bar accordingly.
+  $("#progress-bar").val(
+    (player.getCurrentTime() / player.getDuration()) * 100
+  );
+}
+
+//////////////////////////////////////////////////
 function resetGame() {
   $("#schoolSpan").empty();
   $("#letterList").empty();
@@ -112,9 +233,7 @@ function resetGame() {
 
   mysteryWord = "";
   $("#winLose").addClass("hide");
-  badGuess = 0;
-  console.log(mysteryWord);
-  console.log(badGuess);
+  badGuess = 4;
 }
 function newGame() {
   //Code goes HERE TO SELECT RANDOM SCHOOL
@@ -128,17 +247,23 @@ function newGame() {
   gameStart = true;
 }
 function isGameOver() {
-  if (badGuess > 3) {
+  if ((badGuess = 0)) {
+    //LOSER
     $("#schoolPic").attr("src", loser);
-    alert("you lose");
     gameStart = false;
+    return;
   }
   if (mysteryWord === school.mascot) {
-    var myLogo = school.getLogo();
+    //WINNER
+    var myLogo = "assets/images/" + school.getLogo();
+
     $("#schoolPic").attr("src", myLogo);
     $("#winLose").removeClass("hide");
-    school.playSong();
+
     gameStart = false;
+    winCount++;
+
+    $("#winTotal").html(winCount.toString());
   }
 }
 function buildUsedLetterList(letter) {
@@ -153,8 +278,8 @@ function buildUsedLetterList(letter) {
   } else {
     ul2.append(", " + letter);
   }
-  badGuess++;
-  tempGuess = badGuess + 1;
+  badGuess--;
+  tempGuess = badGuess;
   tempGuess = tempGuess.toString();
   $("#downCount").html(tempGuess);
 }
