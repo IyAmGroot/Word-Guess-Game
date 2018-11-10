@@ -8,5 +8,7 @@ I spoke to Trey about taking a few liberties with the assignment, he approved th
 
 2.  Number of guesses remaining.  I'm not using a number.  I start with 4 footballs.  For each missed guess, a football disappears.  No footballs = You lose.  You'll know it.
 
+3.  I also used jQuery. 
+
 Thanks!
 Eric
