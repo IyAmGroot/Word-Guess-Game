@@ -7,7 +7,7 @@ var schoolNames = [
   "Ohio State",
   "UCLA",
   "Notre Dame",
-  "University of Virginia",
+  "University of Oklahoma",
   "Virginia Tech"
 ];
 var schoolMascots = [
@@ -19,48 +19,37 @@ var schoolMascots = [
   "BUCKEYES",
   "BRUINS",
   "FIGHTIN IRISH",
-  "CAVALIERS",
+  "SOONERS",
   "HOKIES"
 ];
 var schoolLogos = [
-  "Alabama.jpg",
-  "jmu.jpg",
-  "lsu.png",
-  "michigan.jpg",
-  "texasfight.jpg",
-  "theOSU.jpg",
+  "alabama-crimson-tide-1-logo-png-transparent.png",
+  "james-madison-dukes-2-logo-png-transparent.png",
+  "lsu-tigers-logo-png-transparent.png",
+  "Michigan_Wolverines_Logo.svg.png",
+  "texas.png",
+  "ohio-state-university-logo-png-1.png",
   "UCLA.png",
-  "UND-FI.jpg",
-  "uva.jpeg",
-  "virginiatech.png"
+  "1200px-Notre_Dame_Leprechaun_logo.svg.png",
+  "OU.jpg",
+  "VT.png"
 ];
-// var schoolSongs = [
-//   "https://www.youtube.com/embed/1gu17MFr5-M?controls=0",
-//   "https://www.youtube.com/embed/2nZ7RolGw3w?controls=0&amp;start=4",
-//   "https://www.youtube.com/embed/yy9ie3eZvc4?controls=0&amp;start=4",
-//   "https://www.youtube.com/embed/KwRpUwuCdcA?controls=0",
-//   "https://www.youtube.com/embed/efRTosGodyU?controls=0&amp;start=13",
-//   "https://www.youtube.com/embed/xzSfCv3u3d0?controls=0&amp;start=15",
-//   "https://www.youtube.com/embed/Q1FUzQdbRdw?controls=0",
-//   "https://www.youtube.com/embed/7csGhMQoQms?controls=0",
-//   "https://www.youtube.com/embed/7CIBlMGrUg8?controls=0",
-//   "https://www.youtube.com/embed/2NDdc4xYKX8?controls=0&amp;start=1"
-// ];
+
 var schoolSongs = [
   "1gu17MFr5-M",
   "2nZ7RolGw3w",
-  "yy9ie3eZvc4",
+  "iSy4Ox8ndzs",
   "KwRpUwuCdcA",
   "efRTosGodyU",
   "xzSfCv3u3d0",
-  "Q1FUzQdbRdw",
+  "93aPuPxNQqU",
   "7csGhMQoQms",
-  "7CIBlMGrUg8",
+  "qILOCvvF-cA",
   "2NDdc4xYKX8"
 ];
-var startAt = [0, 4, 4, 0, 13, 15, 0, 0, 0, 1];
 
-/*  uncomment section when ready to build object array  URL to w3schools: https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_constructor */
+var startAt = [18, 6.5, 8, 0, 13, 15, 0, 0, 11, 1];
+
 function School(name, mascot, logo, fightSong, startAt) {
   this.name = name;
   this.mascot = mascot;
@@ -89,13 +78,6 @@ for (var i = 0; i < schoolNames.length; i++) {
   );
 }
 
-//object.assign(a,b) - combines objects.  create obj with key:values, obj with fn and merge
-//OR
-//create an object and then instantiate it
-//schools[i] = new School()
-
-//Press space bar to begin/reset
-
 //Load school object
 //Show School, Populate underscores for the mascot letters
 
@@ -110,22 +92,18 @@ for (var i = 0; i < schoolNames.length; i++) {
 
 /************************Variables*******************************************/
 var mysteryWord = "",
-  badGuess = 4,
   gameStart = false,
   winner = "assets/images/winner.gif",
   loser = "assets/images/loser.jpg";
+loserTune = "_asNhzXq72w";
 winCount = 0;
-var player; //player
+var player;
+var badGuess = 4;
 /******************************LOGIC*****************************************/
 
 $(document).ready(function() {
   $("#guesses").html(badGuess.toString());
   $("#startBtn").on("click", function() {
-    var m = "2nZ7RolGw3w";
-    player.loadVideoById(m);
-    player.seekTo(10);
-
-    player.playVideo();
     if (!gameStart) {
       resetGame();
       newGame();
@@ -133,8 +111,6 @@ $(document).ready(function() {
       if (confirm("Abandon current game?")) {
         resetGame();
         newGame();
-      } else {
-        return;
       }
     }
   });
@@ -160,13 +136,13 @@ $(document).ready(function() {
 
 /************************FUNCTIONS*********************************************/
 
-//function for player
+/////////////////////////functions for player//////////////////////////////////
 function onYouTubeIframeAPIReady() {
   console.log("onyoutubeiframeready");
   player = new YT.Player("schoolSong", {
-    width: 600,
-    height: 400,
-    start: 10,
+    width: 0,
+    height: 0,
+    start: 0,
     videoId: "7csGhMQoQms",
     playerVars: {
       color: "white"
@@ -176,7 +152,7 @@ function onYouTubeIframeAPIReady() {
     }
   });
 }
-
+//function for player
 function initialize() {
   console.log("initialize");
   // Update the controls on load
@@ -193,12 +169,13 @@ function initialize() {
     updateProgressBar();
   }, 1000);
 }
+//function for player
 function updateTimerDisplay() {
   // Update current time text display.
   $("#current-time").text(formatTime(player.getCurrentTime()));
   $("#duration").text(formatTime(player.getDuration()));
 }
-
+//function for player
 function formatTime(time) {
   time = Math.round(time);
 
@@ -215,8 +192,9 @@ $("#progress-bar").on("mouseup touchend", function(e) {
   var newTime = player.getDuration() * (e.target.value / 100);
 
   // Skip video to new time.
-  player.seekTo(newTime);
+  // player.seekTo(newTime);
 });
+//function for player
 function updateProgressBar() {
   // Update the value of our progress bar accordingly.
   $("#progress-bar").val(
@@ -229,25 +207,34 @@ function resetGame() {
   $("#schoolSpan").empty();
   $("#letterList").empty();
   $("#schoolPic").attr("src", "assets/images/Unknown.png");
+
   //school song
+  player.loadVideoById("");
 
   mysteryWord = "";
   $("#winLose").addClass("hide");
   badGuess = 4;
 }
 function newGame() {
-  //Code goes HERE TO SELECT RANDOM SCHOOL
+  // SELECT RANDOM SCHOOL
   school = schools[Math.floor(Math.random() * schools.length)];
-
+  $(".ballCounter").attr("class", "ballCounter");
   //Set School Name Here
   $("#schoolSpan").html(school.name);
 
   //Populate Underscores
   initializeMysteryWord();
+
+  //Load school song
+  school.getStart();
+  player.cueVideoById(school.getSong(), school.getStart());
+
   gameStart = true;
 }
 function isGameOver() {
-  if ((badGuess = 0)) {
+  if (badGuess == 0) {
+    player.loadVideoById(loserTune);
+    player.playVideo();
     //LOSER
     $("#schoolPic").attr("src", loser);
     gameStart = false;
@@ -255,6 +242,7 @@ function isGameOver() {
   }
   if (mysteryWord === school.mascot) {
     //WINNER
+    player.playVideo();
     var myLogo = "assets/images/" + school.getLogo();
 
     $("#schoolPic").attr("src", myLogo);
@@ -281,7 +269,9 @@ function buildUsedLetterList(letter) {
   badGuess--;
   tempGuess = badGuess;
   tempGuess = tempGuess.toString();
-  $("#downCount").html(tempGuess);
+  $("#guesses").html(tempGuess);
+  var ball = "#ball" + tempGuess;
+  $(ball).addClass("hide");
 }
 
 function setLetter(letter) {

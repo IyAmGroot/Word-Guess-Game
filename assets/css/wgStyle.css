@@ -3,6 +3,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+h1 {
+  font-size: 300%;
+  padding: 10px 0;
+}
+.container {
+  background-color: #064206b3;
+}
 
 #topLine {
   padding-left: 0;
@@ -22,7 +29,7 @@ body {
   font-family: "Graduate", cursive;
 }
 .greenBack {
-  background-color: rgb(6, 66, 6);
+  background-color: #064206;
 }
 .customLook {
   background-color: rgb(6, 66, 6);
@@ -33,23 +40,10 @@ body {
   color: #fff;
   vertical-align: -webkit-baseline-middle;
 }
-.orangeText {
-  color: orangered;
-  text-shadow: #fff;
-  font-size: 400%;
-  text-align: center;
-  padding-top: 10%;
-}
-.downMarker {
-  width: 100px;
-  height: 100px;
-  background-color: #000;
-}
-.startButton {
-  align-self: center;
-}
+
 .btnStart {
   background-color: rgb(6, 66, 6);
+  margin-bottom: 10px;
 }
 .secondRow {
   margin-top: 0;
@@ -57,18 +51,23 @@ body {
   align-items: center;
   justify-content: center;
 }
-.lastRow {
-  /* display: inline; */
-}
+
 #winLose {
-  padding-top: 25%;
+  padding-top: 20%;
   width: 80%;
-  /* vertical-align: middle;
-  max-width: 100%; */
 }
 #schoolPic {
   width: 400px;
 }
+#schoolSong {
+  display: none;
+}
 .hide {
   display: none;
+}
+.ballCounter {
+  width: 50px;
+}
+.counterRow {
+  height: 50px;
 }
