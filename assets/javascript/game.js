@@ -94,7 +94,7 @@ for (var i = 0; i < schoolNames.length; i++) {
 var mysteryWord = "",
   gameStart = false,
   winner = "assets/images/winner.gif",
-  loser = "assets/images/loser.jpg";
+  loser = "assets/images/Loser.jpg";
 loserTune = "_asNhzXq72w";
 winCount = 0;
 var player;
