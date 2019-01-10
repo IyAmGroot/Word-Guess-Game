@@ -1,4 +1,17 @@
 # Word-Guess-Game
+Goal
+
+Create a hangman style word guess game.
+
+Solution
+User by selecting the correct letters the user will correctly spell out the mascot for the randomly selected university.  
+
+Techncial Details
+Using Javascript and JQuery to manipulate the page elements, letters display in the mascot name if applicable.  Incorrect guesses are listed seperately.  Players receive four (4) guesses.  The fifth incorrect guess results in a loss.  
+
+HTML is styled by Bootstrap and custom CSS.
+
+
 
 Hello TAs,
 
